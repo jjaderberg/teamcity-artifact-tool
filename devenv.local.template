@@ -1,0 +1,5 @@
+# Copy this file as devenv.local and fill it out.
+# Source devenv (`. ./devenv`) to set up your environment.
+TEAMCITY_SERVER=
+TEAMCITY_USERNAME=
+TEAMCITY_PASSWORD=

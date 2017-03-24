@@ -1,0 +1,13 @@
+# Source me to set up your environment
+if [ -f ./devenv.local ]; then
+  . ./devenv.local
+
+  export TEAMCITY_SERVER
+  export TEAMCITY_USERNAME
+  export TEAMCITY_PASSWORD
+
+else
+  echo "Couldn't find ./devenv.local."
+fi
+
+# vim: set sw=2 ts=2 ft=sh:
