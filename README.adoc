@@ -1,0 +1,44 @@
+= TeamCity artifact tool
+
+Download artifacts from TeamCity.
+
+Clone this repo and install the tool with
+
+[source, sh]
+----
+./gradlew installDist
+----
+
+You can then run it by going to `build/install/teamcity` and issuing `bin/teamcity`.
+
+To package for distribution do one of 
+
+[source, sh]
+----
+  $ ./gradlew distTar
+PS> ./gradlew distZip
+----
+
+Take advantage of simple environment configuration by making a local copy of `devenv.local.template` called `devenv.local`.
+Fill in the TeamCity server, username and password.
+Then source the common `devenv` configuration file to prepare the environment for running the tool.
+The tool will use the environment exported environment variables to connect to TeamCity.
+
+It is possible to pass them as arguments instead, but it is not recommended.
+
+Once configured, an example tool invocation would be:
+
+[source, sh]
+----
+./bin/teamcity --artifact-name=my-build-artifact-1.0.4.jar --build-type=MyProject_My10Build --output-dir=$PWD
+----
+
+If no build number is specified, the last successful build is used.
+Instead of `--artifact-name` it is possible to specify an artifact pattern:
+
+[source, sh]
+----
+./bin/teamcity --artifact-pattern='my-build-artifact-.*\.jar'
+----
+
+See `./bin/teamcity -h` for other arguments.
