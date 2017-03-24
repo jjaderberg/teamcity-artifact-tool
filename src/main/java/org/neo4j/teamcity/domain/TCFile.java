@@ -80,4 +80,30 @@ public class TCFile {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TCFile tcFile = (TCFile) o;
+
+        if (size != tcFile.size) return false;
+        if (!name.equals(tcFile.name)) return false;
+        if (!modificationTime.equals(tcFile.modificationTime)) return false;
+        if (!href.equals(tcFile.href)) return false;
+        if (content != null ? !content.equals(tcFile.content) : tcFile.content != null) return false;
+        return children != null ? children.equals(tcFile.children) : tcFile.children == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + size;
+        result = 31 * result + modificationTime.hashCode();
+        result = 31 * result + href.hashCode();
+        result = 31 * result + (content != null ? content.hashCode() : 0);
+        result = 31 * result + (children != null ? children.hashCode() : 0);
+        return result;
+    }
+
 }

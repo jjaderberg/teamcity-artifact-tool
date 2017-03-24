@@ -90,4 +90,32 @@ public class TCBuild {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TCBuild tcBuild = (TCBuild) o;
+
+        if (number != tcBuild.number) return false;
+        if (!id.equals(tcBuild.id)) return false;
+        if (!buildTypeId.equals(tcBuild.buildTypeId)) return false;
+        if (!status.equals(tcBuild.status)) return false;
+        if (!state.equals(tcBuild.state)) return false;
+        if (!href.equals(tcBuild.href)) return false;
+        return webUrl.equals(tcBuild.webUrl);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + buildTypeId.hashCode();
+        result = 31 * result + number;
+        result = 31 * result + status.hashCode();
+        result = 31 * result + state.hashCode();
+        result = 31 * result + href.hashCode();
+        result = 31 * result + webUrl.hashCode();
+        return result;
+    }
+
 }

@@ -3,7 +3,6 @@ package org.neo4j.teamcity;
 import org.neo4j.teamcity.domain.TCBuild;
 import org.neo4j.teamcity.domain.TCBuilds;
 import org.neo4j.teamcity.domain.TCFile;
-import org.neo4j.teamcity.domain.TCFiles;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
