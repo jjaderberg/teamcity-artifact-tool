@@ -1,5 +1,7 @@
 = TeamCity artifact tool
 
+Merge me!
+
 Download artifacts from TeamCity.
 
 Clone this repo and install the tool with
